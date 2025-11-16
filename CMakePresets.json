@@ -6,7 +6,7 @@
             "displayName": "GCC 14.2.0 x86_64-linux-gnu",
             "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/debian-gcc",
+            "binaryDir": "${sourceDir}/build",
             "cacheVariables": {
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/debian-gcc",
                 "CMAKE_C_COMPILER": "/usr/bin/gcc",
@@ -18,7 +18,7 @@
             "name": "ninja-msvc",
             "displayName": "Ninja MSVC x64/Vcpkg",
             "description": "Ninja generator using MSVC compiler and Vcpkg toolchain",
-            "binaryDir": "${sourceDir}/build/ninja-msvc",
+            "binaryDir": "${sourceDir}/build",
             "generator": "Ninja",
             "cacheVariables": {
                 "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",               
