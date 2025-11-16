@@ -1,0 +1,10 @@
+# Folder
+/.vscode
+/build
+
+# File
+vcpkg-configuration.json
+vcpkg-manifest-install.log
+
+# My file
+test.txt
