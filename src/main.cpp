@@ -26,7 +26,6 @@ int main()
     cap.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
 
     cv::Mat frame;
-    int frameCount = 0;
 
     while (true) {
         cap >> frame;
@@ -36,7 +35,6 @@ int main()
             break;
         }
 
-        frameCount++;
 
         cv::imshow("Live Video Feed (C++ OpenCV)", frame);
 
@@ -45,7 +43,7 @@ int main()
         }
     }
 
-    fmt::print("Exiting application. Total frames processed: {}.\n", frameCount);
+    fmt::print("Exiting application.\n");
     cap.release();
     cv::destroyAllWindows();
 
