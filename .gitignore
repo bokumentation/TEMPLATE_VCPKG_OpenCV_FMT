@@ -6,7 +6,6 @@
 # File
 vcpkg-configuration.json
 vcpkg-manifest-install.log
-CMakePresets.json
 
 # My file
 test.txt

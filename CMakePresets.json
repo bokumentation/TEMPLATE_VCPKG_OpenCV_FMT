@@ -2,17 +2,58 @@
     "version": 8,
     "configurePresets": [
         {
-            "name": "gcc",
+            "name": "debian-gcc",
             "displayName": "GCC 14.2.0 x86_64-linux-gnu",
             "description": "Using compilers: C = /usr/bin/gcc, CXX = /usr/bin/g++",
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build",
+            "binaryDir": "${sourceDir}/build/debian-gcc",
             "cacheVariables": {
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/debian-gcc",
                 "CMAKE_C_COMPILER": "/usr/bin/gcc",
                 "CMAKE_CXX_COMPILER": "/usr/bin/g++",
                 "CMAKE_BUILD_TYPE": "Debug"
             }
+        },
+        {
+            "name": "ninja-msvc",
+            "displayName": "Ninja MSVC x64/Vcpkg",
+            "description": "Ninja generator using MSVC compiler and Vcpkg toolchain",
+            "binaryDir": "${sourceDir}/build/ninja-msvc",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",               
+                "VCPKG_TARGET_TRIPLET": "x64-windows",
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/ninja-msvc",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "debian-debug",
+            "displayName": "Debian Debug",
+            "configurePreset": "debian-gcc",
+            "configuration": "Debug"
+        },
+        {
+            "name": "debian-release",
+            "displayName": "Debian Release",
+            "configurePreset": "debian-gcc",
+            "configuration": "Release"
+        },
+             {
+            "name": "msvc-debug",
+            "displayName": "Windows Debug",
+            "configurePreset": "ninja-msvc",
+            "configuration": "Debug"
+        },
+        {
+            "name": "msvc-release",
+            "displayName": "Windows Release",
+            "configurePreset": "ninja-msvc",
+            "configuration": "Release"
         }
     ]
 }
